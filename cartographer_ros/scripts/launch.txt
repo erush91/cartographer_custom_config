@@ -1,0 +1,1 @@
+roslaunch cartographer_ros demo_my_robot.launch bag_filename:=/home/gene/Downloads/2019-06-29-07-48-07_synced.bag
