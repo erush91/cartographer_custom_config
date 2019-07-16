@@ -43,8 +43,8 @@ TRAJECTORY_BUILDER_3D = {
   ceres_scan_matcher = {
     occupied_space_weight_0 = 1.,
     occupied_space_weight_1 = 6.,
-    translation_weight = 5.,
-    rotation_weight = 16,
+    translation_weight = 1.,
+    rotation_weight = 10,
     only_optimize_yaw = false,
     ceres_solver_options = {
       use_nonmonotonic_steps = false,
@@ -59,7 +59,7 @@ TRAJECTORY_BUILDER_3D = {
     max_angle_radians = 0.004,
   },
 
-  imu_gravity_time_constant = 10.,
+  imu_gravity_time_constant = 9.8,
   rotational_histogram_size = 120,
 
   submaps = {
