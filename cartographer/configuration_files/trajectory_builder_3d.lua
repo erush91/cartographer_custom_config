@@ -34,7 +34,7 @@ TRAJECTORY_BUILDER_3D = {
 
   use_online_correlative_scan_matching = false,
   real_time_correlative_scan_matcher = {
-    linear_search_window = 0.12,
+    linear_search_window = 0.25,
     angular_search_window = math.rad(10.),
     translation_delta_cost_weight = 1e-1,
     rotation_delta_cost_weight = 1e-1,
