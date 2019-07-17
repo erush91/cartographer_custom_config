@@ -14,9 +14,15 @@
 
 POSE_GRAPH = {
   optimize_every_n_nodes = 320,
+  -- IMPACT: HAS NOT BEEN EVALUATED
+  -- optimize_every_n_nodes = 90,
   constraint_builder = {
     sampling_ratio = 0.6,
+    -- IMPACT: HAS NOT BEEN EVALUATED
+    -- sampling_ratio = 0.3,
     max_constraint_distance = 30.,
+    -- IMPACT: HAS NOT BEEN EVALUATED
+    -- max_constraint_distance = 15.,
     min_score = 0.55,
     global_localization_min_score = 0.6,
     loop_closure_translation_weight = 1.1e4,
@@ -35,6 +41,8 @@ POSE_GRAPH = {
         use_nonmonotonic_steps = true,
         max_num_iterations = 10,
         num_threads = 8,
+        -- IMPACT: HAS NOT BEEN EVALUATED
+        -- num_threads = 1,
       },
     },
     fast_correlative_scan_matcher_3d = {
@@ -43,19 +51,30 @@ POSE_GRAPH = {
       min_rotational_score = 0.77,
       min_low_resolution_score = 0.55,
       linear_xy_search_window = 10.,
+      -- IMPACT: MORE DRIFT-TOLERANT LOOP CLOSURES (NEED TO TRY REDUCING FOR 360 FOV CASE)
+      -- linear_xy_search_window = 5.,
       linear_z_search_window = 5,
+      -- IMPACT: MORE DRIFT-TOLERANT LOOP CLOSURES (NEED TO TRY REDUCING FOR 360 FOV CASE)
+      -- linear_z_search_window = 1.,
       angular_search_window = math.rad(22.5),
+      -- IMPACT: MORE DRIFT-TOLERANT LOOP CLOSURES (NEED TO TRY REDUCING FOR 360 FOV CASE)
+      -- angular_search_window = math.rad(15.),
     },
     ceres_scan_matcher_3d = {
       occupied_space_weight_0 = 5.,
       occupied_space_weight_1 = 30.,
       translation_weight = 10.,
       rotation_weight = 100.,
+      -- IMPACT: WEIGHTS ROTATION MORE (NEED TO TRY REDUCING FOR 360 FOV CASE)
+      -- rotation_weight = 1.,
       only_optimize_yaw = false,
       ceres_solver_options = {
         use_nonmonotonic_steps = false,
         max_num_iterations = 10,
-        num_threads = 8 },
+        num_threads = 8 
+        -- IMPACT: HAS NOT BEEN EVALUATED, NEED TO TEST EFFECT ON LATENCY
+        -- num_threads = 1,
+      },
     },
   },
   matcher_translation_weight = 5e2,
@@ -71,14 +90,20 @@ POSE_GRAPH = {
     fixed_frame_pose_translation_weight = 1e1,
     fixed_frame_pose_rotation_weight = 1e2,
     log_solver_summary = true,
+    -- SET TO TRUE SO PRINTS IMU TRANSFORM ERROR WHEN LOOP CLOSURE OCCURS
+    -- log_solver_summary = false,
     ceres_solver_options = {
       use_nonmonotonic_steps = false,
       max_num_iterations = 50,
       num_threads = 8,
+      -- IMPACT: HAS NOT BEEN EVALUATED, NEED TO TEST EFFECT ON LATENCY
+      -- num_threads = 7,
     },
   },
   max_num_final_iterations = 200,
   global_sampling_ratio = 0.1,
+  -- IMPACT: HAS NOT BEEN EVALUATED, NEED TO TEST LOWERING TO REDUCE LATENCY
+  -- global_sampling_ratio = 0.003,
   log_residual_histograms = true,
   global_constraint_search_after_n_seconds = 10.,
 }
