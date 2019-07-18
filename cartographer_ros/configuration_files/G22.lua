@@ -22,9 +22,9 @@ options = {
   tracking_frame = "3dm_gx5_15",
   published_frame = "base_link",
   odom_frame = "odom",
-  provide_odom_frame = false,
+  provide_odom_frame = true,
   publish_frame_projected_to_2d = false,
-  use_odometry = false,
+  use_odometry = true,
   use_nav_sat = false,
   use_landmarks = false,
   num_laser_scans = 0,
@@ -54,7 +54,7 @@ MAP_BUILDER.num_background_threads = 8
 POSE_GRAPH.optimization_problem.huber_scale = 5e2
 -- Have not modified
 
-POSE_GRAPH.optimize_every_n_nodes = 0 
+POSE_GRAPH.optimize_every_n_nodes = 320 
 -- Set to 320 for loop closure, set to 0 for no loop closure
 
 POSE_GRAPH.constraint_builder.sampling_ratio = 0.03

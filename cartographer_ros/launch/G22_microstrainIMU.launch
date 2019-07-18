@@ -26,7 +26,7 @@
           -configuration_directory $(find cartographer_ros)/configuration_files
           -configuration_basename G22.lua"
       output="screen">
-    
+    <remap from="/odom" to="/jackal_odom"/> 
     <remap from="/points2" to="/os1_node/points"/>
     <remap from="/imu" to="/imu_raw"/>
   </node>
