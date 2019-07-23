@@ -16,10 +16,6 @@
 
 <launch>
 
-
-<include file="$(find ouster_ros)/os1_no_transform.launch" />
-<include file="$(find microstrain_driver)/launch/3dm_gx5_15.launch" />
-
   <param name="robot_description"
     textfile="$(find cartographer_ros)/urdf/G22_microstrainIMU.urdf" />
 
@@ -31,8 +27,8 @@
           -configuration_directory $(find cartographer_ros)/configuration_files
           -configuration_basename G22.lua"
       output="screen">
-    
-    <remap from="/odom" to="/jackal_odom"/>
+
+    <remap from="/odom" to="/transformed_odom"/>
     <remap from="/points2" to="/os1_node/points"/>
     <remap from="/imu" to="/imu_raw"/>
   </node>
