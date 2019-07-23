@@ -16,7 +16,7 @@
 
 <launch>
 
-<include file="$(find ouster_ros)/os1_no_transform.launch" />
+<include file="$(find ouster_ros)/launch/os1_no_transform.launch" />
 <include file="$(find microstrain_driver)/launch/3dm_gx5_15.launch" />
 
   <param name="robot_description"
@@ -32,7 +32,7 @@
       output="screen">
     <!-- <remap from="/odom" to="/jackal_odom"/> -->
     <remap from="/odom" to="/transformed_odom"/> 
-    <remap from="/points2" to="/os1_node/points"/>
+    <remap from="/points2" to="/os1_cloud_node/points"/>
     <remap from="/imu" to="/imu_raw"/>
   </node>
 
