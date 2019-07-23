@@ -42,34 +42,18 @@
     </visual>
   </link>
 
-  <link name="laser">
-    <visual>
-      <origin xyz="0.0 0.0 0.0" />
-      <geometry>
-        <cylinder length="0.02" radius="0.03" />
-      </geometry>
-      <material name="gray" />
-    </visual>
-  </link>
-
   <link name="base_link" />
 
   <joint name="imu_link_joint" type="fixed">
     <parent link="base_link" />
     <child link="3dm_gx5_15" />
-    <origin xyz="0 0 0" rpy="0 -3.14 -1.57" />
+    <origin xyz="0 -0.020 0.630" rpy="3.14 0 1.57" />
   </joint>
 
   <joint name="os1_link_joint" type="fixed">
     <parent link="base_link" />
     <child link="os1_sensor" />
     <origin xyz="0 0 0.70" rpy="0 0 0" />
-  </joint>
-
-  <joint name="rplidar_link_joint" type="fixed">
-    <parent link="base_link" />
-    <child link="laser" />
-    <origin xyz="0.267 0 0.12" rpy="0 0 0" />
   </joint>
 
 </robot>
