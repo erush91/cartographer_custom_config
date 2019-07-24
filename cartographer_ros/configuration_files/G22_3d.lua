@@ -63,4 +63,10 @@ POSE_GRAPH.optimization_problem.ceres_solver_options.max_num_iterations = 10
 POSE_GRAPH.constraint_builder.min_score = 0.62
 POSE_GRAPH.constraint_builder.global_localization_min_score = 0.66
 
+-- ANDREW SUGGESTED TO FUSING IN ODOMETRY
+POSE_GRAPH.optimization_problem.local_slam_pose_translation_weight = 0.1
+POSE_GRAPH.optimization_problem.local_slam_pose_rotation_weight = 0.99
+POSE_GRAPH.optimization_problem.odometry_translation_weight = 0.9
+POSE_GRAPH.optimization_problem.odometry_rotation_weight = 0.01
+
 return options
