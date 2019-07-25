@@ -18,12 +18,12 @@ include "trajectory_builder.lua"
 options = {
   map_builder = MAP_BUILDER,
   trajectory_builder = TRAJECTORY_BUILDER,
-  map_frame = "map",
-  tracking_frame = "3dm_gx5_15",
+  map_frame = "world",
+  tracking_frame = "base_link",
   published_frame = "base_link",
   odom_frame = "odom",
   provide_odom_frame = true,
-  publish_frame_projected_to_2d = false,
+  publish_frame_projected_to_2d = true,
   use_odometry = false,
   use_nav_sat = false,
   use_landmarks = false,
@@ -42,13 +42,20 @@ options = {
   landmarks_sampling_ratio = 1.,
 }
 
-TRAJECTORY_BUILDER_3D.num_accumulated_range_data = 1
+TRAJECTORY_BUILDER_2D.num_accumulated_range_data = 1
+TRAJECTORY_BUILDER_2D.use_imu_data = true
+TRAJECTORY_BUILDER_2D.min_z = 0.25
+TRAJECTORY_BUILDER_2D.max_z = 0.75
+TRAJECTORY_BUILDER_2D.missing_data_ray_length = 15.0
+TRAJECTORY_BUILDER_2D.max_range = 30.
+
+
 -- Set to 1 because only need one Ouster point cloud message / full 360 coverage 
 
-MAP_BUILDER.use_trajectory_builder_3d = true
+MAP_BUILDER.use_trajectory_builder_2d = true
 -- Use 3d because using Ouster 3D lidar
 
-MAP_BUILDER.num_background_threads = 8
+MAP_BUILDER.num_background_threads = 6
 -- Originally set to 7
 
 POSE_GRAPH.optimization_problem.huber_scale = 5e2
