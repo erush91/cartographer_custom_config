@@ -48,7 +48,7 @@ TRAJECTORY_BUILDER_3D.num_accumulated_range_data = 1
 MAP_BUILDER.use_trajectory_builder_2d = true
 -- Use 3d because using Ouster 3D lidar
 
-MAP_BUILDER.num_background_threads = 8
+MAP_BUILDER.num_background_threads = 7
 -- Originally set to 7
 
 POSE_GRAPH.optimization_problem.huber_scale = 5e2
