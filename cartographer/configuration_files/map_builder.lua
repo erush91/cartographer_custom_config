@@ -21,4 +21,5 @@ MAP_BUILDER = {
   -- IMPACT: HAS NOT BEEN EVALUATED, NEED TO TEST EFFECT ON LATENCY
   -- num_background_threads = 4,
   pose_graph = POSE_GRAPH,
+  collate_by_trajectory = false,
 }

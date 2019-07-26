@@ -23,3 +23,5 @@ MAP_BUILDER_SERVER = {
   upload_batch_size = 100,
   enable_ssl_encryption = false,
 }
+
+MAP_BUILDER.collate_by_trajectory = true

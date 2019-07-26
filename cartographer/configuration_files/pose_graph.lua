@@ -92,6 +92,8 @@ POSE_GRAPH = {
     log_solver_summary = true,
     -- SET TO TRUE SO PRINTS IMU TRANSFORM ERROR WHEN LOOP CLOSURE OCCURS
     -- log_solver_summary = false,
+    use_online_imu_extrinsics_in_3d = true,
+    fix_z_in_3d = false,
     ceres_solver_options = {
       use_nonmonotonic_steps = false,
       max_num_iterations = 50,
